@@ -45,9 +45,9 @@ class HomeScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 34.0),
             child: Column(
               children: [
-                CustomCard(type: Types.phone),
-                CustomCard(type: Types.email),
-                CustomCard(type: Types.location),
+                CustomCard(Types.phone),
+                CustomCard(Types.email),
+                CustomCard(Types.location),
               ],
             ),
           )

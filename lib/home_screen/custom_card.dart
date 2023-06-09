@@ -5,9 +5,9 @@ class CustomCard extends StatefulWidget {
 
   final Types type;
 
-  const CustomCard({
+  const CustomCard(
+    this.type,{
     super.key,
-    required this.type,
   });
 
   @override
