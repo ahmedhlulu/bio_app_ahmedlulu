@@ -47,7 +47,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 CustomCard(Types.phone),
                 CustomCard(Types.email),
-                CustomCard(Types.location),
+                CustomCard(Types.website),
               ],
             ),
           )

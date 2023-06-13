@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'custom_types.dart';
 
 class CustomCard extends StatefulWidget {
@@ -19,6 +20,7 @@ class _CustomCardState extends State<CustomCard> {
   late final String subtitle;
   late final IconData leading;
   late final IconData trailing;
+  late final Uri link;
 
   void createCustomText(){
     switch(widget.type){
@@ -27,18 +29,21 @@ class _CustomCardState extends State<CustomCard> {
         subtitle = "+972-59-888-1177";
         leading = Icons.phone_iphone;
         trailing = Icons.phone;
+        link = Uri.parse("tel:$subtitle");
         break;
       case Types.email:
         title = "Email";
         subtitle = "ahmeeed.lulu@gmail.com";
         leading = Icons.email;
         trailing = Icons.send;
+        link = Uri.parse("mailTo:$subtitle");
         break;
-      case Types.location:
-        title = "Location";
-        subtitle = "Palestine - Gaza";
-        leading = Icons.map;
-        trailing = Icons.location_on;
+      case Types.website:
+        title = "Website";
+        subtitle = "https://linktr.ee/ahmedhlulu";
+        leading = Icons.web;
+        trailing = Icons.open_in_browser;
+        link = Uri.parse(subtitle);
         break;
     }
   }
@@ -60,9 +65,11 @@ class _CustomCardState extends State<CustomCard> {
         leading: Icon(leading),
         title: Text(title),
         subtitle: Text(subtitle),
-        trailing: IconButton(onPressed: ()=> showSnackBar(), icon: Icon(trailing)),
+        trailing: IconButton(onPressed: ()=> launchUrl(link), icon: Icon(trailing)),
       ),
     );
   }
 }
+// For external browser we use =>
+// trailing: IconButton(onPressed: ()=> launchUrl(link,mode: LaunchMode.externalApplication), icon: Icon(trailing)),
 

@@ -1,5 +1,5 @@
 enum Types {
   phone,
   email,
-  location
+  website
 }
